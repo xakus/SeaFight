@@ -1,0 +1,16 @@
+Index: src/com/XAKUS/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1251
+===================================================================
+--- src/com/XAKUS/Main.java	(date 1452020066000)
++++ src/com/XAKUS/Main.java	(revision )
+@@ -17,6 +17,8 @@
+ 
+         boolean start=true;
+         while (start){
++
++
+             Language.setLang(Language.Lang.AZERBAIJAN);
+             Display.writeText(Language.GetLanguage(0));
+             int x=Integer.parseInt(sc.next())-1;

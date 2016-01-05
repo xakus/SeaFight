@@ -17,8 +17,6 @@ public class Main {
 
         boolean start=true;
         while (start){
-
-
             Language.setLang(Language.Lang.AZERBAIJAN);
             Display.writeText(Language.GetLanguage(0));
             int x=Integer.parseInt(sc.next())-1;
