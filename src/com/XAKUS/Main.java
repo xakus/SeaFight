@@ -18,7 +18,7 @@ public class Main {
         boolean start=true;
         while (start){
             Language.setLang(Language.Lang.AZERBAIJAN);
-            Display.writeText(Language.GetLanguage(1));
+            Display.writeText(Language.GetLanguage(0));
             int x=Integer.parseInt(sc.next())-1;
             int y=Integer.parseInt(sc.next())-1;
             Game.atack(x,y,Sea.compMatrix, Ships.getCompShips());
