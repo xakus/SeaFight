@@ -16,6 +16,7 @@ public class Main {
          Sea.createSea(SeaResolution.R_10X10);
 
         boolean start=true;
+
         while (start){
             Language.setLang(Language.Lang.AZERBAIJAN);
             Display.writeText(Language.GetLanguage(0));
