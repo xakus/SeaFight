@@ -31,8 +31,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/XAKUS/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3148148" vertical-offset="0" max-vertical-offset="594">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2003367" vertical-offset="0" max-vertical-offset="594">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -63,6 +63,7 @@
     <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="FORCE_PUSH_ALLOWED" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode />
     </option>
@@ -207,6 +208,10 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="SearchEverywhereHistoryKey" value="settin&#9;ACTION&#9;Database.Settings" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.SeaFight">
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -333,7 +338,7 @@
       <workItem from="1451993745485" duration="44000" />
       <workItem from="1452020249135" duration="1094000" />
       <workItem from="1452121575145" duration="1156000" />
-      <workItem from="1452371648009" duration="237000" />
+      <workItem from="1452371648009" duration="584000" />
     </task>
     <task id="LOCAL-00001" summary="added&#10;">
       <created>1452021009985</created>
@@ -389,11 +394,17 @@
       <option name="project" value="LOCAL" />
       <updated>1452371883143</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added&#10;">
+      <created>1452371889973</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1452371889973</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3222000" />
+    <option name="totallyTimeSpent" value="3569000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -532,8 +543,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/XAKUS/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3148148" vertical-offset="0" max-vertical-offset="594">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2003367" vertical-offset="0" max-vertical-offset="594">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
           <folding />
         </state>
       </provider>
