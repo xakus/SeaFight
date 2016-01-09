@@ -17,7 +17,7 @@ public class Main {
 
         boolean start=true;
         while (start){
-            Language.setLang(Language.Lang.RUSSIAN);
+            Language.setLang(Language.Lang.ENGLISH);
 
             Display.writeText(Language.GetLanguage(0));
             int x=Integer.parseInt(sc.next())-1;
