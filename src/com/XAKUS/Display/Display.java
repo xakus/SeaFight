@@ -53,9 +53,15 @@ public abstract class Display {
             System.out.println();
         }
     }
-    public  static void writeText(String str){
-        drawFullDisplay(Sea.myMatrix,Sea.compMatrix);
+
+    public static void writeTextAndDisplay(String str) {
+        drawFullDisplay(Sea.myMatrix, Sea.compMatrix);
         System.out.println(Constants.ANSI_YELLOW+ str+Constants.ANSI_RESET);
+    }
+
+    public static void writeText(String str) {
+
+        System.out.println(Constants.ANSI_YELLOW + str + Constants.ANSI_RESET);
     }
     private static String getSymbol(int x) {
         String[] strings = new String[]{"_", "~", "*", "X", "O"};

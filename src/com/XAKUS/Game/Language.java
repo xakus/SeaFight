@@ -5,9 +5,10 @@ package com.XAKUS.Game;
  */
 public class Language {
    private static Lang lang ;
-  private static   String [][] langMass=new String[][]{{"Please insert coord x and y"}, //ENGLISH
-          {"Пожалуйста введите координаты x и y"}, //РУССКИЙ
-          {"Zəhmət olmasa coordinatları  x və y daxil edin"}};//AZERBAYCAN
+    private static String[][] langMass = new String[][]{{"Hi", "Welcome to the game SeaFight", "Please insert coord x and y"},
+            {"Привет", "Добро пожаловать в игру SeaFight", "Пожалуйста введите координаты x и y"},
+            {"Salam", "SeaFight Oyuna xoş gəlmisiniz", "Zəhmət olmasa coordinatları  x və y daxil edin"}};
+
 
     public static String GetLanguage(int i){
         return  langMass[lang.ordinal()][i];
