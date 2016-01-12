@@ -60,9 +60,9 @@ public abstract class Display {
     }
 
     public static void writeText(String str) {
-
         System.out.println(Constants.ANSI_YELLOW + str + Constants.ANSI_RESET);
     }
+
     private static String getSymbol(int x) {
         String[] strings = new String[]{"_", "~", "*", "X", "O"};
         String str=null;

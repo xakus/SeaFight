@@ -21,8 +21,6 @@ public class Main {
 
         boolean start=true;
         while (start){
-
-
             Display.writeTextAndDisplay(Language.GetLanguage(2));
             int x=Integer.parseInt(sc.next())-1;
             int y=Integer.parseInt(sc.next())-1;
