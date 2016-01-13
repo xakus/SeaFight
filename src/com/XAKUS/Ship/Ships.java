@@ -248,4 +248,62 @@ public class Ships {
             return coordinate;
       }
 
+      public static ResultOfAttack attack(Attacking attacking, int attackX, int attackY) {
+            List<Ship>     virtualShips   = null;
+            Ship           vShip          = null;
+            Deck[]         vDeck          = null;
+            int            woundedCount   = 0;
+            ResultOfAttack resultOfAttack = ResultOfAttack.PAST;
+            if(attacking == Attacking.COMPUTER) {
+                  virtualShips = compShips;
+            }
+            if(attacking == Attacking.PLAYER) {
+                  virtualShips = myShips;
+            }
+            if(virtualShips != null) {
+                  for(int i = 0; i < virtualShips.size(); i++) {
+                        woundedCount = 0;
+                        vShip = virtualShips.get(i);
+                        vDeck = vShip.getDeck();
+                        for(int j = 0; j < vDeck.length; j++) {
+                              if(vDeck[j].isLive()) {
+                                    if(vDeck[j].getX() == attackX && vDeck[j].getY() == attackY) {
+                                          vDeck[j].setIsLive(false);
+                                          resultOfAttack = ResultOfAttack.WOUNDED;
+                                          if(attacking == Attacking.COMPUTER) {
+                                                Sea.compMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
+                                          }
+                                          if(attacking == Attacking.PLAYER) {
+                                                Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
+                                          }
+                                    }
+                              }
+                              if(!vDeck[j].isLive()) {
+                                    woundedCount++;
+                              }
+
+                        }
+                        if(woundedCount == vShip.getCountDeck()) {
+                              for(int j = 0; j < vDeck.length; j++) {
+                                    if(attacking == Attacking.COMPUTER) {
+                                          Sea.compMatrix[vDeck[j].getY()][vDeck[j].getX()] = 3;
+                                    }
+                                    if(attacking == Attacking.PLAYER) {
+                                          Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 3;
+                                    }
+                              }
+                              resultOfAttack = ResultOfAttack.KILLED;
+                        }
+                  }
+            }
+
+            if(attacking == Attacking.COMPUTER) {
+                  compShips = virtualShips;
+            }
+            if(attacking == Attacking.PLAYER) {
+                  myShips = virtualShips;
+            }
+            return resultOfAttack;
+      }
+
 }

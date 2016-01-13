@@ -6,19 +6,19 @@ package com.XAKUS.Ship;
 public class Deck {
       private int  x;
       private int  y;
-      private byte isLive;
+      private boolean isLive;
 
       public Deck(int x, int y) {
             this.x = x;
             this.y = y;
-            isLive = (byte) 4;
+            isLive = true;
       }
 
-      public byte isLive() {
+      public boolean isLive() {
             return isLive;
       }
 
-      public void setIsLive(byte isLive) {
+      public void setIsLive(boolean isLive) {
             this.isLive = isLive;
       }
 

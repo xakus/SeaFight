@@ -5,7 +5,7 @@ import com.XAKUS.Game.Game;
 import com.XAKUS.Game.Language;
 import com.XAKUS.Sea.Sea;
 import com.XAKUS.Sea.SeaResolution;
-import com.XAKUS.Ship.Ships;
+import com.XAKUS.Ship.Attacking;
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class Main {
                   Display.writeTextAndDisplay(Language.GetLanguage(2));
                   int x = Integer.parseInt(sc.next()) - 1;
                   int y = Integer.parseInt(sc.next()) - 1;
-                  Game.atack(x, y, Sea.compMatrix, Ships.getCompShips());
+                  Game.atack(Attacking.COMPUTER, x, y);
 
             }
       }
