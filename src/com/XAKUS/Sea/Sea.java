@@ -2,7 +2,6 @@ package com.XAKUS.Sea;
 
 import com.XAKUS.Ship.Ships;
 
-
 /**
  * Created by xakus on 20.11.2015.
  */
@@ -11,8 +10,6 @@ public class Sea {
       public static int[][] myMatrix;
       public static int[][] compMatrix;
       SeaResolution resolution;
-
-
 
       private Sea(SeaResolution resolution) {
             this.resolution = resolution;
@@ -32,8 +29,6 @@ public class Sea {
             }
 
       }
-
-
 
       public static void createSea(SeaResolution resolution) {
             new Sea(resolution);

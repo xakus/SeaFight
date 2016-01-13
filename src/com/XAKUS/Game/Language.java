@@ -23,19 +23,13 @@ public class Language {
               }
       };
 
-
-
       public static String GetLanguage(int i) {
             return langMass[i][lang.ordinal()];
       }
 
-
-
       public static void setLang(Lang i) {
             lang = i;
       }
-
-
 
       public enum Lang {
             ENGLISH,

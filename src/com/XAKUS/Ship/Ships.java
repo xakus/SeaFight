@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 /**
  * Created by xakus on 23.11.2015.
  */
@@ -17,8 +16,6 @@ public class Ships {
       private static List<Ship>    myShips;
       private static List<Ship>    compShips;
       private static SeaResolution seaResolution;
-
-
 
       private Ships(SeaResolution seaResolution) {
 
@@ -48,43 +45,29 @@ public class Ships {
             compShips = new ArrayList<Ship>();
       }
 
-
-
       public static int getShip4palub() {
             return ship4palub;
       }
-
-
 
       public static int getShip3palub() {
             return ship3palub;
       }
 
-
-
       public static int getShip2palub() {
             return ship2palub;
       }
-
-
 
       public static int getShip1palub() {
             return ship1palub;
       }
 
-
-
       public static List<Ship> getMyShips() {
             return myShips;
       }
 
-
-
       public static List<Ship> getCompShips() {
             return compShips;
       }
-
-
 
       public static void createShips(SeaResolution resolution) {
             Ships.seaResolution = resolution;
@@ -131,8 +114,6 @@ public class Ships {
                   compShips.add(s2);
             }
       }
-
-
 
       private static Coordinate fieldGeneration(int[][] seaMartix, int palubaCount) {
             int     x          = 0;
@@ -266,6 +247,5 @@ public class Ships {
             }
             return coordinate;
       }
-
 
 }

@@ -9,7 +9,6 @@ import com.XAKUS.Ship.Ships;
 
 import java.util.Scanner;
 
-
 public class Main {
 
       public static void main(String[] args) {

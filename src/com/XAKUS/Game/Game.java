@@ -4,7 +4,6 @@ import com.XAKUS.Ship.Ship;
 
 import java.util.List;
 
-
 /**
  * Created by xakus on 30.11.2015.
  */
@@ -27,7 +26,6 @@ public class Game {
                         matrix[x][y] = 3;
                         break;
             }
-
 
       }
 }
