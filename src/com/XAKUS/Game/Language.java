@@ -4,24 +4,43 @@ package com.XAKUS.Game;
  * Created by xakus on 23.12.2015.
  */
 public class Language {
-   private static Lang lang ;
-    private static String[][] langMass = new String[][]{{"Hi", "Привет", "Salam"},
-            {"Welcome to the game SeaFight", "Добро пожаловать в игру SeaFight", "SeaFight Oyuna xoş gəlmisiniz"},
-            {"Please insert coord x and y", "Пожалуйста введите координаты x и y", "Zəhmət olmasa x və y coordinatları daxil edin"}};
+      private static Lang lang;
+      private static String[][] langMass = new String[][]{
+              {
+                      "Hi",
+                      "Привет",
+                      "Salam"
+              },
+              {
+                      "Welcome to the game SeaFight",
+                      "Добро пожаловать в игру SeaFight",
+                      "SeaFight Oyuna xoş gəlmisiniz"
+              },
+              {
+                      "Please insert coord x and y",
+                      "Пожалуйста введите координаты x и y",
+                      "Zəhmət olmasa x və y coordinatları daxil edin"
+              }
+      };
 
 
-    public static String GetLanguage(int i){
-        return langMass[i][lang.ordinal()];
-    }
 
-    public static void setLang(Lang i){
-        lang=i;
-    }
+      public static String GetLanguage(int i) {
+            return langMass[i][lang.ordinal()];
+      }
 
-    public enum Lang {
-        ENGLISH,
-        RUSSIAN,
-        AZERBAIJAN
-    }
+
+
+      public static void setLang(Lang i) {
+            lang = i;
+      }
+
+
+
+      public enum Lang {
+            ENGLISH,
+            RUSSIAN,
+            AZERBAIJAN
+      }
 
 }
