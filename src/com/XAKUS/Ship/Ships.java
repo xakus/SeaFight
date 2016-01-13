@@ -134,51 +134,53 @@ public class Ships {
 
 
 
-      private static Coordinate fieldGeneration(int[][] matrix, int i) {
-            int                    x           = 0, y = 0, vh = 0;
-            int[][]                m           = null;
+      private static Coordinate fieldGeneration(int[][] seaMartix, int palubaCount) {
+            int     x          = 0;
+            int     y          = 0;
+            int     vh         = 0;
+            int[][] virtualSea = null;
             boolean                isOK        = true;
             Coordinate             coordinate  = new Coordinate(0, 0, Coordinate.Positioning.HORIZONTAL);
             Coordinate.Positioning positioning = null;
             while(isOK) {
                   isOK = false;
                   if(seaResolution == SeaResolution.R_5X5) {
-                        m = new int[5][5];
+                        virtualSea = new int[5][5];
                         vh = new Random().nextInt(2);
                         if(vh == 0) {
                               x = new Random().nextInt(5);
-                              y = new Random().nextInt(5 - i);
+                              y = new Random().nextInt(5 - palubaCount);
                               positioning = Coordinate.Positioning.VERTICAL;
                         } else {
-                              x = new Random().nextInt(5 - i);
+                              x = new Random().nextInt(5 - palubaCount);
                               y = new Random().nextInt(5);
                               positioning = Coordinate.Positioning.HORIZONTAL;
                         }
 
                   }
                   if(seaResolution == SeaResolution.R_10X10) {
-                        m = new int[10][10];
+                        virtualSea = new int[10][10];
                         vh = new Random().nextInt(2);
                         if(vh == 0) {
                               x = new Random().nextInt(10);
-                              y = new Random().nextInt(10 - i);
+                              y = new Random().nextInt(10 - palubaCount);
                               positioning = Coordinate.Positioning.VERTICAL;
                         } else {
-                              x = new Random().nextInt(10 - i);
+                              x = new Random().nextInt(10 - palubaCount);
                               y = new Random().nextInt(10);
                               positioning = Coordinate.Positioning.HORIZONTAL;
                         }
 
                   }
                   if(seaResolution == SeaResolution.R_15X15) {
-                        m = new int[15][15];
+                        virtualSea = new int[15][15];
                         vh = new Random().nextInt(2);
                         if(vh == 0) {
                               x = new Random().nextInt(15);
-                              y = new Random().nextInt(15 - i);
+                              y = new Random().nextInt(15 - palubaCount);
                               positioning = Coordinate.Positioning.VERTICAL;
                         } else {
-                              x = new Random().nextInt(15 - i);
+                              x = new Random().nextInt(15 - palubaCount);
                               y = new Random().nextInt(15);
                               positioning = Coordinate.Positioning.HORIZONTAL;
                         }
@@ -187,65 +189,65 @@ public class Ships {
                   coordinate.setX(x);
                   coordinate.setY(y);
                   coordinate.setPositioning(positioning);
-                  for(int z = 0; z < i; z++) {
+                  for(int z = 0; z < palubaCount; z++) {
 
-                        if(matrix[y][x] != 0) {
+                        if(seaMartix[y][x] != 0) {
                               isOK = true;
                               break;
                         }
                         if(y != 0) {
-                              if(matrix[y - 1][x] != 0) {
+                              if(seaMartix[y - 1][x] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
-                        if(y != matrix.length - 1) {
-                              if(matrix[y + 1][x] != 0) {
+                        if(y != seaMartix.length - 1) {
+                              if(seaMartix[y + 1][x] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
 
                         if(x != 0) {
-                              if(matrix[y][x - 1] != 0) {
+                              if(seaMartix[y][x - 1] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
-                        if(x != matrix[0].length - 1) {
-                              if(matrix[y][x + 1] != 0) {
+                        if(x != seaMartix[0].length - 1) {
+                              if(seaMartix[y][x + 1] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
 
                         if(y != 0 && x != 0) {
-                              if(matrix[y - 1][x - 1] != 0) {
+                              if(seaMartix[y - 1][x - 1] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
-                        if(y != matrix.length - 1 && x != matrix[0].length - 1) {
-                              if(matrix[y + 1][x + 1] != 0) {
+                        if(y != seaMartix.length - 1 && x != seaMartix[0].length - 1) {
+                              if(seaMartix[y + 1][x + 1] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
 
-                        if(y != matrix.length - 1 && x != 0) {
-                              if(matrix[y + 1][x - 1] != 0) {
+                        if(y != seaMartix.length - 1 && x != 0) {
+                              if(seaMartix[y + 1][x - 1] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
-                        if(y != 0 && x != matrix[0].length - 1) {
-                              if(matrix[y - 1][x + 1] != 0) {
+                        if(y != 0 && x != seaMartix[0].length - 1) {
+                              if(seaMartix[y - 1][x + 1] != 0) {
                                     isOK = true;
                                     break;
                               }
                         }
                         if(isOK == false) {
-                              m[x][y] = 1;
+                              virtualSea[x][y] = 1;
                         }
                         if(positioning == Coordinate.Positioning.VERTICAL) {
                               y++;
@@ -254,11 +256,11 @@ public class Ships {
                         }
                   }
             }
-            for(int a = 0; a < m.length; a++) {
-                  for(int b = 0; b < m[a].length; b++) {
+            for(int a = 0; a < virtualSea.length; a++) {
+                  for(int b = 0; b < virtualSea[a].length; b++) {
 
-                        if(m[a][b] == 1) {
-                              matrix[b][a] = 4;
+                        if(virtualSea[a][b] == 1) {
+                              seaMartix[b][a] = 4;
                         }
                   }
             }
