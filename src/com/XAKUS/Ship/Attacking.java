@@ -6,5 +6,5 @@ package com.XAKUS.Ship;
 public enum Attacking {
       PLAYER,
       COMPUTER,
-      TEST
+
 }
