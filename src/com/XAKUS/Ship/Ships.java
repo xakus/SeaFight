@@ -253,7 +253,7 @@ public class Ships {
             Ship           vShip          = null;
             Deck[]         vDeck          = null;
             int            woundedCount   = 0;
-            ResultOfAttack resultOfAttack = ResultOfAttack.PAST;
+            ResultOfAttack resultOfAttack = ResultOfAttack.NULL;
             if(attacking == Attacking.COMPUTER) {
                   virtualShips = compShips;
                   if(Sea.compMatrix[attackY][attackX] == 1 || Sea.compMatrix[attackY][attackX] == 2 || Sea.compMatrix[attackY][attackX] == 3) {
