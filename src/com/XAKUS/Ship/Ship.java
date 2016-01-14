@@ -10,10 +10,19 @@ public class Ship {
       int i = 0;
       private int    countDeck;
       private Deck[] deck;
+      private boolean isKilled = false;
 
       public Ship(int countDeck) {
             this.countDeck = countDeck;
             deck = new Deck[countDeck];
+      }
+
+      public boolean isKilled() {
+            return isKilled;
+      }
+
+      public void setIsKilled(boolean isKilled) {
+            this.isKilled = isKilled;
       }
 
       public int getCountDeck() {

@@ -118,7 +118,7 @@ public class Ships {
       private static Coordinate fieldGeneration(int[][] seaMartix, int palubaCount) {
             int     x          = 0;
             int     y          = 0;
-            int     vh         = 0;
+            int     vh;
             int[][] virtualSea = null;
             boolean                isOK        = true;
             Coordinate             coordinate  = new Coordinate(0, 0, Coordinate.Positioning.HORIZONTAL);
@@ -253,7 +253,7 @@ public class Ships {
             Ship           vShip          = null;
             Deck[]         vDeck          = null;
             int            woundedCount   = 0;
-            ResultOfAttack resultOfAttack = ResultOfAttack.NULL;
+            ResultOfAttack resultOfAttack = ResultOfAttack.PAST;
             if(attacking == Attacking.COMPUTER) {
                   virtualShips = compShips;
                   if(Sea.compMatrix[attackY][attackX] == 1 || Sea.compMatrix[attackY][attackX] == 2 || Sea.compMatrix[attackY][attackX] == 3) {
@@ -267,10 +267,12 @@ public class Ships {
                   }
             }
             if(virtualShips != null && resultOfAttack != ResultOfAttack.IT_WAS) {
+
                   for(int i = 0; i < virtualShips.size(); i++) {
                         woundedCount = 0;
                         vShip = virtualShips.get(i);
                         vDeck = vShip.getDeck();
+                        if(!vShip.isKilled()) {
                         for(int j = 0; j < vDeck.length; j++) {
 
                               if(vDeck[j].getX() == attackX && vDeck[j].getY() == attackY) {
@@ -283,14 +285,6 @@ public class Ships {
                                           if(attacking == Attacking.PLAYER) {
                                                 Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
                                           }
-                                    }
-                              } else {
-                                    resultOfAttack = ResultOfAttack.PAST;
-                                    if(attacking == Attacking.COMPUTER) {
-                                          Sea.compMatrix[attackY][attackX] = 1;
-                                    }
-                                    if(attacking == Attacking.PLAYER) {
-                                          Sea.myMatrix[attackY][attackX] = 1;
                                     }
                               }
 
@@ -309,7 +303,19 @@ public class Ships {
                                     }
                               }
                               resultOfAttack = ResultOfAttack.KILLED;
+                              virtualShips.get(i).setIsKilled(true);
                         }
+                        }
+                  }
+            }
+
+            if(resultOfAttack == ResultOfAttack.PAST) {
+                  resultOfAttack = ResultOfAttack.PAST;
+                  if(attacking == Attacking.COMPUTER) {
+                        Sea.compMatrix[attackY][attackX] = 1;
+                  }
+                  if(attacking == Attacking.PLAYER) {
+                        Sea.myMatrix[attackY][attackX] = 1;
                   }
             }
 
