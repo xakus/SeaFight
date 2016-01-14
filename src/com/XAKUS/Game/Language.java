@@ -20,6 +20,21 @@ public class Language {
                       "Please insert coord x and y",
                       "Пожалуйста введите координаты x и y",
                       "Zəhmət olmasa x və y coordinatları daxil edin"
+              },
+              {
+                      "You lose",
+                      "Ты проиграл",
+                      "Sən uduzdun"
+              },
+              {
+                      "You won",
+                      "Ты выиграл",
+                      "Sən qalib geldiz"
+              },
+              {
+                      "You entered, these coordinates",
+                      "Вы вводили эти координаты",
+                      "Siz bu koordinatları daxil eləmisiz"
               }
       };
 

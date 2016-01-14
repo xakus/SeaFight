@@ -256,18 +256,25 @@ public class Ships {
             ResultOfAttack resultOfAttack = ResultOfAttack.PAST;
             if(attacking == Attacking.COMPUTER) {
                   virtualShips = compShips;
+                  if(Sea.compMatrix[attackY][attackX] == 1 || Sea.compMatrix[attackY][attackX] == 2 || Sea.compMatrix[attackY][attackX] == 3) {
+                        resultOfAttack = ResultOfAttack.IT_WAS;
+                  }
             }
             if(attacking == Attacking.PLAYER) {
                   virtualShips = myShips;
+                  if(Sea.myMatrix[attackY][attackX] == 1 || Sea.myMatrix[attackY][attackX] == 2 || Sea.myMatrix[attackY][attackX] == 3) {
+                        resultOfAttack = ResultOfAttack.IT_WAS;
+                  }
             }
-            if(virtualShips != null) {
+            if(virtualShips != null && resultOfAttack != ResultOfAttack.IT_WAS) {
                   for(int i = 0; i < virtualShips.size(); i++) {
                         woundedCount = 0;
                         vShip = virtualShips.get(i);
                         vDeck = vShip.getDeck();
                         for(int j = 0; j < vDeck.length; j++) {
-                              if(vDeck[j].isLive()) {
-                                    if(vDeck[j].getX() == attackX && vDeck[j].getY() == attackY) {
+
+                              if(vDeck[j].getX() == attackX && vDeck[j].getY() == attackY) {
+                                    if(vDeck[j].isLive()) {
                                           vDeck[j].setIsLive(false);
                                           resultOfAttack = ResultOfAttack.WOUNDED;
                                           if(attacking == Attacking.COMPUTER) {
@@ -277,7 +284,16 @@ public class Ships {
                                                 Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
                                           }
                                     }
+                              } else {
+                                    resultOfAttack = ResultOfAttack.PAST;
+                                    if(attacking == Attacking.COMPUTER) {
+                                          Sea.compMatrix[attackY][attackX] = 1;
+                                    }
+                                    if(attacking == Attacking.PLAYER) {
+                                          Sea.myMatrix[attackY][attackX] = 1;
+                                    }
                               }
+
                               if(!vDeck[j].isLive()) {
                                     woundedCount++;
                               }
@@ -299,11 +315,35 @@ public class Ships {
 
             if(attacking == Attacking.COMPUTER) {
                   compShips = virtualShips;
+
             }
+
             if(attacking == Attacking.PLAYER) {
                   myShips = virtualShips;
+
             }
+
+            if(killedAll(virtualShips)) {
+                  resultOfAttack = ResultOfAttack.KILLED_ALL;
+            }
+
             return resultOfAttack;
+      }
+
+      private static boolean killedAll(List<Ship> virtualShips) {
+            boolean killed = true;
+            Deck[]  vDeck  = null;
+            for(int i = 0; i < virtualShips.size(); i++) {
+                  vDeck = virtualShips.get(i).getDeck();
+                  for(int j = 0; j < vDeck.length; j++) {
+                        if(vDeck[j].isLive()) {
+                              killed = false;
+                        }
+
+                  }
+
+            }
+            return killed;
       }
 
 }

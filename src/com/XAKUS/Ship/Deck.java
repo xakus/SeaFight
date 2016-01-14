@@ -4,8 +4,8 @@ package com.XAKUS.Ship;
  * Created by xakus on 19.11.2015.
  */
 public class Deck {
-      private int  x;
-      private int  y;
+      private int x;
+      private int y;
       private boolean isLive;
 
       public Deck(int x, int y) {
