@@ -359,21 +359,22 @@ public class Ships {
 
     private static void passRoundShip(int[][] seaMatrix, Ship vShip) {
         Deck[] decks = vShip.getDeck();
-        if (vShip.getCoordinate().getPositioning() == Coordinate.Positioning.VERTICAL) {
+        for (int i = 0; i < decks.length; i++) {
+            if (vShip.getCoordinate().getPositioning() == Coordinate.Positioning.VERTICAL) {
 
-            for (int i = 0; i < decks.length; i++) {
+
                 if (i == 0) {
-                    if (decks[i].getY() - 1 > 0) {
+                    if (decks[i].getY() - 1 >= 0) {
                         seaMatrix[decks[i].getY() - 1][decks[i].getX()] = 1;
                     }
-                    if (decks[i].getY() - 1 > 0 && decks[i].getX() - 1 > 0) {
+                    if (decks[i].getY() - 1 >= 0 && decks[i].getX() - 1 >= 0) {
                         seaMatrix[decks[i].getY() - 1][decks[i].getX() - 1] = 1;
                     }
-                    if (decks[i].getY() - 1 > 0 && decks[i].getX() + 1 < seaMatrix.length) {
+                    if (decks[i].getY() - 1 >= 0 && decks[i].getX() + 1 < seaMatrix.length) {
                         seaMatrix[decks[i].getY() - 1][decks[i].getX() + 1] = 1;
                     }
                 }
-                if (decks[i].getX() - 1 > 0) {
+                if (decks[i].getX() - 1 >= 0) {
                     seaMatrix[decks[i].getY()][decks[i].getX() - 1] = 1;
                 }
                 if (decks[i].getX() + 1 < seaMatrix.length) {
@@ -383,7 +384,7 @@ public class Ships {
                     if (decks[i].getY() + 1 < seaMatrix.length) {
                         seaMatrix[decks[i].getY() + 1][decks[i].getX()] = 1;
                     }
-                    if (decks[i].getY() + 1 < seaMatrix.length && decks[i].getX() - 1 > 0) {
+                    if (decks[i].getY() + 1 < seaMatrix.length && decks[i].getX() - 1 >= 0) {
                         seaMatrix[decks[i].getY() + 1][decks[i].getX() - 1] = 1;
                     }
                     if (decks[i].getY() + 1 < seaMatrix.length && decks[i].getX() + 1 < seaMatrix.length) {
@@ -391,8 +392,38 @@ public class Ships {
                     }
 
                 }
+
+            } else {
+                if (i == 0) {
+                    if (decks[i].getX() - 1 >= 0) {
+                        seaMatrix[decks[i].getY()][decks[i].getX() - 1] = 1;
+                    }
+                    if (decks[i].getX() - 1 >= 0 && decks[i].getY() - 1 >= 0) {
+                        seaMatrix[decks[i].getY() - 1][decks[i].getX() - 1] = 1;
+                    }
+                    if (decks[i].getX() - 1 >= 0 && decks[i].getY() + 1 < seaMatrix.length) {
+                        seaMatrix[decks[i].getY() + 1][decks[i].getX() - 1] = 1;
+                    }
+                }
+                if (decks[i].getY() - 1 >= 0) {
+                    seaMatrix[decks[i].getY() - 1][decks[i].getX()] = 1;
+                }
+                if (decks[i].getY() + 1 < seaMatrix.length) {
+                    seaMatrix[decks[i].getY() + 1][decks[i].getX()] = 1;
+                }
+                if (i == decks.length - 1) {
+                    if (decks[i].getX() + 1 < seaMatrix.length) {
+                        seaMatrix[decks[i].getY()][decks[i].getX() + 1] = 1;
+                    }
+                    if (decks[i].getX() + 1 < seaMatrix.length && decks[i].getY() - 1 >= 0) {
+                        seaMatrix[decks[i].getY() - 1][decks[i].getX() + 1] = 1;
+                    }
+                    if (decks[i].getX() + 1 < seaMatrix.length && decks[i].getY() + 1 < seaMatrix.length) {
+                        seaMatrix[decks[i].getY() + 1][decks[i].getX() + 1] = 1;
+                    }
+                }
+
             }
         }
-
     }
 }
