@@ -361,35 +361,35 @@ public class Ships {
             Deck[] decks = vShip.getDeck();
             if(vShip.getCoordinate().getPositioning() == Coordinate.Positioning.VERTICAL) {
 
-                  for(int i = 1; i < decks.length; i++) {
+                  for (int i = 0; i < decks.length; i++) {
                         if(i == 0) {
                               if(decks[i].getX() - 1 > 0) {
-                                    seaMatrix[decks[0].getX()][decks[0].getY() - 1] = 1;
+                                    seaMatrix[decks[0].getY() - 1][decks[0].getX()] = 1;
                               }
                               if(decks[i].getX() - 1 > 0 && decks[i].getY() - 1 > 0) {
-                                    seaMatrix[decks[0].getX() - 1][decks[0].getY() - 1] = 1;
+                                    seaMatrix[decks[0].getY() - 1][decks[0].getX() - 1] = 1;
                               }
                               if(decks[i].getX() - 1 > 0 && decks[i].getY() + 1 < seaMatrix.length - 1) {
-                                    seaMatrix[decks[0].getX() + 1][decks[0].getY() - 1] = 1;
+                                    seaMatrix[decks[0].getY() - 1][decks[0].getX() + 1] = 1;
                               }
                         }
 
                         if(decks[i].getY() - 1 > 0) {
-                              seaMatrix[decks[0].getX() - 1][decks[0].getY()] = 1;
+                              seaMatrix[decks[0].getY()][decks[0].getX() - 1] = 1;
                         }
                         if(decks[i].getY() + 1 < seaMatrix.length - 1) {
-                              seaMatrix[decks[0].getX() + 1][decks[0].getY()] = 1;
+                              seaMatrix[decks[0].getY()][decks[0].getX() + 1] = 1;
                         }
 
                         if(i == decks.length - 1) {
                               if(decks[i].getX() + 1 < seaMatrix.length - 1) {
-                                    seaMatrix[decks[0].getX()][decks[0].getY() + 1] = 1;
+                                    seaMatrix[decks[0].getY() + 1][decks[0].getX()] = 1;
                               }
                               if(decks[i].getX() + 1 < seaMatrix.length - 1 && decks[i].getY() - 1 > 0) {
-                                    seaMatrix[decks[0].getX() - 1][decks[0].getY() + 1] = 1;
+                                    seaMatrix[decks[0].getY() + 1][decks[0].getX() - 1] = 1;
                               }
                               if(decks[i].getX() + 1 < seaMatrix.length - 1 && decks[i].getY() + 1 < seaMatrix.length - 1) {
-                                    seaMatrix[decks[0].getX() + 1][decks[0].getY() + 1] = 1;
+                                    seaMatrix[decks[0].getY() + 1][decks[0].getX() + 1] = 1;
                               }
                         }
                   }
