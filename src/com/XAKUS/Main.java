@@ -14,14 +14,14 @@ public class Main {
       public static void main(String[] args) {
 
             Scanner sc = new Scanner(System.in);
-            Sea.createSea(SeaResolution.R_5X5);
+            Sea.createSea(SeaResolution.R_10X10);
             Language.setLang(Language.Lang.RUSSIAN);
-            Display.writeText(Language.GetLanguage(0));
-            Display.writeText(Language.GetLanguage(1));
+            Display.writeText(Language.GetWord(0));
+            Display.writeText(Language.GetWord(1));
 
             boolean start = true;
             while(start) {
-                  Display.writeTextAndDisplay(Language.GetLanguage(2));
+                  Display.writeTextAndDisplay(Language.GetWord(2));
                   int x = Integer.parseInt(sc.next()) - 1;
                   int y = Integer.parseInt(sc.next()) - 1;
                   Game.atack(Attacking.COMPUTER, x, y);

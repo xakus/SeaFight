@@ -38,7 +38,7 @@ public class Language {
               }
       };
 
-      public static String GetLanguage(int i) {
+      public static String GetWord(int i) {
             return langMass[i][lang.ordinal()];
       }
 

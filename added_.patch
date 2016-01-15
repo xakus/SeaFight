@@ -12,5 +12,5 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 +
 +
              Language.setLang(Language.Lang.AZERBAIJAN);
-             Display.writeText(Language.GetLanguage(0));
+             Display.writeText(Language.GetWord(0));
              int x=Integer.parseInt(sc.next())-1;

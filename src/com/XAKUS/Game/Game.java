@@ -16,15 +16,15 @@ public class Game {
             resultOfAttack = Ships.attack(attacking, x, y);
             if(resultOfAttack == ResultOfAttack.KILLED_ALL) {
                   if(attacking == Attacking.COMPUTER) {
-                        Display.writeText(Language.GetLanguage(4));
+                        Display.writeText(Language.GetWord(4));
                   }
                   if(attacking == Attacking.PLAYER) {
-                        Display.writeText(Language.GetLanguage(3));
+                        Display.writeText(Language.GetWord(3));
                   }
 
             }
             if(resultOfAttack == ResultOfAttack.IT_WAS) {
-                  Display.writeText(Language.GetLanguage(5));
+                  Display.writeText(Language.GetWord(5));
             }
 
       }
