@@ -103,7 +103,7 @@ public abstract class Display {
                     "~",
                     "*",
                     "X",
-                    "O"
+                    "_"
             };
             String str = null;
             if(strings[x].equals("X")) {
@@ -112,9 +112,7 @@ public abstract class Display {
             if(strings[x].equals("_")) {
                   str = Constants.ANSI_CYAN + strings[x] + Constants.ANSI_RESET;
             }
-            if (strings[x].equals("O")) {
-                  str = Constants.ANSI_YELLOW + strings[x] + Constants.ANSI_RESET;
-            }
+
             if(strings[x].equals("*")) {
                   str = Constants.ANSI_YELLOW + strings[x] + Constants.ANSI_RESET;
             }
