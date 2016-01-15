@@ -14,7 +14,7 @@ public class Main {
       public static void main(String[] args) {
 
             Scanner sc = new Scanner(System.in);
-            Sea.createSea(SeaResolution.R_10X10);
+            Sea.createSea(SeaResolution.R_15X15);
             Language.setLang(Language.Lang.RUSSIAN);
             Display.writeText(Language.GetWord(0));
             Display.writeText(Language.GetWord(1));

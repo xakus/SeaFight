@@ -273,38 +273,45 @@ public class Ships {
                         vShip = virtualShips.get(i);
                         vDeck = vShip.getDeck();
                         if(!vShip.isKilled()) {
-                        for(int j = 0; j < vDeck.length; j++) {
+                              for(int j = 0; j < vDeck.length; j++) {
 
-                              if(vDeck[j].getX() == attackX && vDeck[j].getY() == attackY) {
-                                    if(vDeck[j].isLive()) {
-                                          vDeck[j].setIsLive(false);
-                                          resultOfAttack = ResultOfAttack.WOUNDED;
+                                    if(vDeck[j].getX() == attackX && vDeck[j].getY() == attackY) {
+                                          if(vDeck[j].isLive()) {
+                                                vDeck[j].setIsLive(false);
+                                                resultOfAttack = ResultOfAttack.WOUNDED;
+                                                if(attacking == Attacking.COMPUTER) {
+                                                      Sea.compMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
+                                                }
+                                                if(attacking == Attacking.PLAYER) {
+                                                      Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
+                                                }
+                                          }
+                                    }
+
+                                    if(!vDeck[j].isLive()) {
+                                          woundedCount++;
+                                    }
+
+                              }
+                              if(woundedCount == vShip.getCountDeck()) {
+                                    for(int j = 0; j < vDeck.length; j++) {
                                           if(attacking == Attacking.COMPUTER) {
-                                                Sea.compMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
+                                                Sea.compMatrix[vDeck[j].getY()][vDeck[j].getX()] = 3;
                                           }
                                           if(attacking == Attacking.PLAYER) {
-                                                Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 2;
+                                                Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 3;
                                           }
                                     }
-                              }
-
-                              if(!vDeck[j].isLive()) {
-                                    woundedCount++;
-                              }
-
-                        }
-                        if(woundedCount == vShip.getCountDeck()) {
-                              for(int j = 0; j < vDeck.length; j++) {
                                     if(attacking == Attacking.COMPUTER) {
-                                          Sea.compMatrix[vDeck[j].getY()][vDeck[j].getX()] = 3;
+                                          passRoundShip(Sea.compMatrix, vShip);
+
                                     }
                                     if(attacking == Attacking.PLAYER) {
-                                          Sea.myMatrix[vDeck[j].getY()][vDeck[j].getX()] = 3;
+                                          passRoundShip(Sea.myMatrix, vShip);
                                     }
+                                    resultOfAttack = ResultOfAttack.KILLED;
+                                    virtualShips.get(i).setIsKilled(true);
                               }
-                              resultOfAttack = ResultOfAttack.KILLED;
-                              virtualShips.get(i).setIsKilled(true);
-                        }
                         }
                   }
             }
@@ -345,11 +352,81 @@ public class Ships {
                         if(vDeck[j].isLive()) {
                               killed = false;
                         }
-
                   }
-
             }
             return killed;
       }
 
+      private static void passRoundShip(int[][] seaMatrix, Ship vShip) {
+            Deck[] decks = vShip.getDeck();
+            if(vShip.getCoordinate().getPositioning() == Coordinate.Positioning.VERTICAL) {
+
+                  for(int i = 1; i < decks.length; i++) {
+                        if(i == 0) {
+                              if(decks[i].getX() - 1 > 0) {
+                                    seaMatrix[decks[0].getX()][decks[0].getY() - 1] = 1;
+                              }
+                              if(decks[i].getX() - 1 > 0 && decks[i].getY() - 1 > 0) {
+                                    seaMatrix[decks[0].getX() - 1][decks[0].getY() - 1] = 1;
+                              }
+                              if(decks[i].getX() - 1 > 0 && decks[i].getY() + 1 < seaMatrix.length - 1) {
+                                    seaMatrix[decks[0].getX() + 1][decks[0].getY() - 1] = 1;
+                              }
+                        }
+
+                        if(decks[i].getY() - 1 > 0) {
+                              seaMatrix[decks[0].getX() - 1][decks[0].getY()] = 1;
+                        }
+                        if(decks[i].getY() + 1 < seaMatrix.length - 1) {
+                              seaMatrix[decks[0].getX() + 1][decks[0].getY()] = 1;
+                        }
+
+                        if(i == decks.length - 1) {
+                              if(decks[i].getX() + 1 < seaMatrix.length - 1) {
+                                    seaMatrix[decks[0].getX()][decks[0].getY() + 1] = 1;
+                              }
+                              if(decks[i].getX() + 1 < seaMatrix.length - 1 && decks[i].getY() - 1 > 0) {
+                                    seaMatrix[decks[0].getX() - 1][decks[0].getY() + 1] = 1;
+                              }
+                              if(decks[i].getX() + 1 < seaMatrix.length - 1 && decks[i].getY() + 1 < seaMatrix.length - 1) {
+                                    seaMatrix[decks[0].getX() + 1][decks[0].getY() + 1] = 1;
+                              }
+                        }
+                  }
+            } else {
+
+                  for(int i = 1; i < decks.length; i++) {
+                        if(i == 0) {
+                              if(decks[i].getY() - 1 > 0) {
+                                    seaMatrix[decks[0].getY() - 1][decks[0].getX()] = 1;
+                              }
+                              if(decks[i].getX() - 1 > 0 && decks[i].getY() - 1 > 0) {
+                                    seaMatrix[decks[0].getY() - 1][decks[0].getX() - 1] = 1;
+                              }
+                              if(decks[i].getX() + 1 < seaMatrix.length - 1 && decks[i].getY() - 1 > 0) {
+                                    seaMatrix[decks[0].getY() - 1][decks[0].getX() + 1] = 1;
+                              }
+                        }
+
+                        if(decks[i].getX() - 1 > 0) {
+                              seaMatrix[decks[0].getY()][decks[0].getX() - 1] = 1;
+                        }
+                        if(decks[i].getX() + 1 < seaMatrix.length - 1) {
+                              seaMatrix[decks[0].getY()][decks[0].getX() + 1] = 1;
+                        }
+
+                        if(i == decks.length - 1) {
+                              if(decks[i].getY() + 1 < seaMatrix.length - 1) {
+                                    seaMatrix[decks[0].getY() + 1][decks[0].getX()] = 1;
+                              }
+                              if(decks[i].getY() + 1 < seaMatrix.length - 1 && decks[i].getX() - 1 > 0) {
+                                    seaMatrix[decks[0].getY() + 1][decks[0].getX() - 1] = 1;
+                              }
+                              if(decks[i].getY() + 1 < seaMatrix.length - 1 && decks[i].getX() + 1 < seaMatrix.length - 1) {
+                                    seaMatrix[decks[0].getY() + 1][decks[0].getX() + 1] = 1;
+                              }
+                        }
+                  }
+            }
+      }
 }
