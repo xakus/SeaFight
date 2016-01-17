@@ -92,7 +92,7 @@ public abstract class Display {
                   str = Constants.ANSI_CYAN + strings[x] + Constants.ANSI_RESET;
             }
             if(strings[x].equals("~")) {
-                  str = Constants.ANSI_CYAN + strings[x] + Constants.ANSI_RESET;
+                  str = Constants.ANSI_RED + strings[x] + Constants.ANSI_RESET;
             }
             return str;
       }

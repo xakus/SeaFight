@@ -13,6 +13,12 @@ public class Coordinate {
             this.positioning = positioning;
       }
 
+      public Coordinate() {
+            this.x = -1;
+            this.y = -1;
+            this.positioning = Positioning.NULL;
+      }
+
       public Positioning getPositioning() {
             return positioning;
       }
@@ -37,8 +43,5 @@ public class Coordinate {
             this.y = y;
       }
 
-      public enum Positioning {
-            HORIZONTAL,
-            VERTICAL
-      }
+
 }

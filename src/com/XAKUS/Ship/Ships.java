@@ -1,6 +1,7 @@
 package com.XAKUS.Ship;
 
 import com.XAKUS.Game.Coordinate;
+import com.XAKUS.Game.Positioning;
 import com.XAKUS.Sea.Sea;
 import com.XAKUS.Sea.SeaResolution;
 
@@ -121,8 +122,8 @@ public class Ships {
         int vh;
         int[][] virtualSea = null;
         boolean isOK = true;
-        Coordinate coordinate = new Coordinate(0, 0, Coordinate.Positioning.HORIZONTAL);
-        Coordinate.Positioning positioning = null;
+        Coordinate coordinate = new Coordinate(0, 0, Positioning.HORIZONTAL);
+        Positioning positioning = null;
         while (isOK) {
             isOK = false;
             if (seaResolution == SeaResolution.R_5X5) {
@@ -131,11 +132,11 @@ public class Ships {
                 if (vh == 0) {
                     x = new Random().nextInt(5);
                     y = new Random().nextInt(5 - palubaCount);
-                    positioning = Coordinate.Positioning.VERTICAL;
+                    positioning = Positioning.VERTICAL;
                 } else {
                     x = new Random().nextInt(5 - palubaCount);
                     y = new Random().nextInt(5);
-                    positioning = Coordinate.Positioning.HORIZONTAL;
+                    positioning = Positioning.HORIZONTAL;
                 }
 
             }
@@ -145,11 +146,11 @@ public class Ships {
                 if (vh == 0) {
                     x = new Random().nextInt(10);
                     y = new Random().nextInt(10 - palubaCount);
-                    positioning = Coordinate.Positioning.VERTICAL;
+                    positioning = Positioning.VERTICAL;
                 } else {
                     x = new Random().nextInt(10 - palubaCount);
                     y = new Random().nextInt(10);
-                    positioning = Coordinate.Positioning.HORIZONTAL;
+                    positioning = Positioning.HORIZONTAL;
                 }
 
             }
@@ -159,11 +160,11 @@ public class Ships {
                 if (vh == 0) {
                     x = new Random().nextInt(15);
                     y = new Random().nextInt(15 - palubaCount);
-                    positioning = Coordinate.Positioning.VERTICAL;
+                    positioning = Positioning.VERTICAL;
                 } else {
                     x = new Random().nextInt(15 - palubaCount);
                     y = new Random().nextInt(15);
-                    positioning = Coordinate.Positioning.HORIZONTAL;
+                    positioning = Positioning.HORIZONTAL;
                 }
 
             }
@@ -230,7 +231,7 @@ public class Ships {
                 if (isOK == false) {
                     virtualSea[x][y] = 1;
                 }
-                if (positioning == Coordinate.Positioning.VERTICAL) {
+                if (positioning == Positioning.VERTICAL) {
                     y++;
                 } else {
                     x++;
@@ -360,7 +361,7 @@ public class Ships {
     private static void passRoundShip(int[][] seaMatrix, Ship vShip) {
         Deck[] decks = vShip.getDeck();
         for (int i = 0; i < decks.length; i++) {
-            if(vShip.getPosition() == Coordinate.Positioning.VERTICAL) {
+            if (vShip.getPosition() == Positioning.VERTICAL) {
 
 
                 if (i == 0) {

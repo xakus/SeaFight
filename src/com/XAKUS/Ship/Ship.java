@@ -1,6 +1,7 @@
 package com.XAKUS.Ship;
 
 import com.XAKUS.Game.Coordinate;
+import com.XAKUS.Game.Positioning;
 
 /**
  * Created by xakus on 19.11.2015.
@@ -11,7 +12,7 @@ public class Ship {
       private int    countDeck;
       private Deck[] deck;
       private boolean isKilled = false;
-      private Coordinate.Positioning position;
+      private Positioning position;
 
       public Ship(int countDeck) {
             this.countDeck = countDeck;
@@ -26,7 +27,7 @@ public class Ship {
             this.isKilled = isKilled;
       }
 
-      public Coordinate.Positioning getPosition() {
+      public Positioning getPosition() {
             return position;
       }
       public int getCountDeck() {
@@ -43,7 +44,7 @@ public class Ship {
 
             for(int i = 0; i < countDeck; i++) {
                   deck[i] = new Deck(x, y);
-                  if(coordinate.getPositioning() == Coordinate.Positioning.VERTICAL) {
+                  if (coordinate.getPositioning() == Positioning.VERTICAL) {
                         y++;
                   } else {
                         x++;

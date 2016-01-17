@@ -12,7 +12,7 @@ public class Game {
       static ResultOfAttack resultOfAttack;
 
       public static void atack(Attacking attacking, int x, int y) {
-
+            // AI.getAttackCoordinate();
             resultOfAttack = Ships.attack(attacking, x, y);
             if(resultOfAttack == ResultOfAttack.KILLED_ALL) {
                   if(attacking == Attacking.COMPUTER) {
