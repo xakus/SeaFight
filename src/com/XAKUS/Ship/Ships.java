@@ -360,7 +360,7 @@ public class Ships {
     private static void passRoundShip(int[][] seaMatrix, Ship vShip) {
         Deck[] decks = vShip.getDeck();
         for (int i = 0; i < decks.length; i++) {
-            if (vShip.getCoordinate().getPositioning() == Coordinate.Positioning.VERTICAL) {
+            if(vShip.getPosition() == Coordinate.Positioning.VERTICAL) {
 
 
                 if (i == 0) {

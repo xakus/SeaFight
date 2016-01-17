@@ -1,5 +1,6 @@
 package com.XAKUS;
 
+import com.XAKUS.ComputerAI.AI;
 import com.XAKUS.Display.Display;
 import com.XAKUS.Game.Game;
 import com.XAKUS.Game.Language;
@@ -18,7 +19,7 @@ public class Main {
             Language.setLang(Language.Lang.RUSSIAN);
             Display.writeText(Language.GetWord(0));
             Display.writeText(Language.GetWord(1));
-
+            AI.initAttackMatrix();
             boolean start = true;
             while(start) {
                   Display.writeTextAndDisplay(Language.GetWord(2));

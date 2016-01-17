@@ -11,7 +11,8 @@ public class Ship {
       private int    countDeck;
       private Deck[] deck;
       private boolean isKilled = false;
-      private Coordinate coordinate;
+      private Coordinate.Positioning position;
+
       public Ship(int countDeck) {
             this.countDeck = countDeck;
             deck = new Deck[countDeck];
@@ -25,8 +26,8 @@ public class Ship {
             this.isKilled = isKilled;
       }
 
-      public Coordinate getCoordinate() {
-            return coordinate;
+      public Coordinate.Positioning getPosition() {
+            return position;
       }
       public int getCountDeck() {
             return countDeck;
@@ -37,7 +38,7 @@ public class Ship {
       }
 
       public void setDeck(Coordinate coordinate) {
-            this.coordinate = coordinate;
+            this.position = coordinate.getPositioning();
             int x = coordinate.getX(), y = coordinate.getY();
 
             for(int i = 0; i < countDeck; i++) {
