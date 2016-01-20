@@ -249,7 +249,9 @@ public class Ships {
         return coordinate;
     }
 
-    public static ResultOfAttack attack(Attacking attacking, int attackX, int attackY) {
+    public static ResultOfAttack attack(Attacking attacking, Coordinate coordinate) {
+        int attackX = coordinate.getX();
+        int attackY = coordinate.getY();
         List<Ship> virtualShips = null;
         Ship vShip = null;
         Deck[] vDeck = null;

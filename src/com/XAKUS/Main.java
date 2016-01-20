@@ -8,7 +8,6 @@ import com.XAKUS.Game.Language;
 import com.XAKUS.Sea.Sea;
 import com.XAKUS.Sea.SeaResolution;
 import com.XAKUS.Ship.Attacking;
-import com.XAKUS.Ship.Ships;
 
 import java.util.Scanner;
 
@@ -25,9 +24,9 @@ public class Main {
             Coordinate c = new Coordinate();/////TEST
             for (int i = 0; i < Sea.myMatrix.length * Sea.myMatrix.length; i++) {
                   Display.writeTextAndDisplay(Language.GetWord(2));
-                  Thread.sleep(0);
-                  c = AI.getAttackCoordinate();
-                  Ships.attack(Attacking.PLAYER, c.getX(), c.getY());
+                  Thread.sleep(1000);
+                  AI.compAttack();
+                  //Ships.attack(Attacking.PLAYER, c);
             }
             boolean start = true;
             while(start) {

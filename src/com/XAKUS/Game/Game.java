@@ -13,7 +13,10 @@ public class Game {
 
       public static void atack(Attacking attacking, int x, int y) {
             // AI.getAttackCoordinate();
-            resultOfAttack = Ships.attack(attacking, x, y);
+            Coordinate coordinate = new Coordinate();
+            coordinate.setX(x);
+            coordinate.setY(y);
+            resultOfAttack = Ships.attack(attacking, coordinate);
             if(resultOfAttack == ResultOfAttack.KILLED_ALL) {
                   if(attacking == Attacking.COMPUTER) {
                         Display.writeText(Language.GetWord(4));
