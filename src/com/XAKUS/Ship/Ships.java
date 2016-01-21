@@ -252,6 +252,7 @@ public class Ships {
     public static ResultOfAttack attack(Attacking attacking, Coordinate coordinate) {
         int attackX = coordinate.getX();
         int attackY = coordinate.getY();
+        System.out.println((attackX + 1) + " " + (attackY + 1));
         List<Ship> virtualShips = null;
         Ship vShip = null;
         Deck[] vDeck = null;
