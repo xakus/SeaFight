@@ -77,23 +77,23 @@ public class AI {
             if (coor.getX() != -1 && coor.getY() != -1) {
                 if (result == ResultOfAttack.WOUNDED) {
                     smashMatrix[coor.getX()][coor.getY()] = 1;
-                    if (coor.getX() - 1 > 0) {
-                        if (smashMatrix[coor.getX() - 1][coor.getY()] != 1 || smashMatrix[coor.getX() - 1][coor.getY()] != 3) {
+                    if(coor.getX() - 1 >= 0) {
+                        if(smashMatrix[coor.getX() - 1][coor.getY()] == 0) {
                             smashMatrix[coor.getX() - 1][coor.getY()] = 2;
                         }
                     }
                     if (coor.getX() + 1 < smashMatrix.length) {
-                        if (smashMatrix[coor.getX() + 1][coor.getY()] != 1 || smashMatrix[coor.getX() + 1][coor.getY()] != 3) {
+                        if(smashMatrix[coor.getX() + 1][coor.getY()] == 0) {
                             smashMatrix[coor.getX() + 1][coor.getY()] = 2;
                         }
                     }
-                    if (coor.getY() - 1 > 0) {
-                        if (smashMatrix[coor.getX()][coor.getY() - 1] != 1 || smashMatrix[coor.getX()][coor.getY() - 1] != 3) {
+                    if(coor.getY() - 1 >= 0) {
+                        if(smashMatrix[coor.getX()][coor.getY() - 1] == 0) {
                             smashMatrix[coor.getX()][coor.getY() - 1] = 2;
                         }
                     }
                     if (coor.getY() + 1 < smashMatrix.length) {
-                        if (smashMatrix[coor.getX()][coor.getY() + 1] != 1 || smashMatrix[coor.getX()][coor.getY() + 1] != 3) {
+                        if(smashMatrix[coor.getX()][coor.getY() + 1] == 0) {
                             smashMatrix[coor.getX()][coor.getY() + 1] = 2;
                         }
                     }
@@ -101,9 +101,16 @@ public class AI {
                 smashSort();
             }
             coor = getSmashCoordinate();
+
+            System.out.println("getX=" + coor.getX() + " getY=" + coor.getY());
             result = Ships.attack(Attacking.PLAYER, coor);
-            if (result == ResultOfAttack.IT_WAS || result == ResultOfAttack.KILLED || result == ResultOfAttack.KILLED_ALL) {
+
+            if(result == ResultOfAttack.PAST || result == ResultOfAttack.KILLED || result == ResultOfAttack.KILLED_ALL) {
                 smashContine = false;
+
+            }
+            if(result == ResultOfAttack.KILLED) {
+                isSmash = false;
             }
         }
 
@@ -111,19 +118,19 @@ public class AI {
             for (int i = 0; i < smashMatrix.length; i++) {
                 for (int j = 0; j < smashMatrix[i].length; j++) {
                     if (smashMatrix[i][j] == 1) {
-                        if (i - 1 > 0) {
+                        smashMatrix[i][j] = 3;
+                        if(i - 1 >= 0) {
                             if (smashMatrix[i - 1][j] != 1) {
                                 smashMatrix[i - 1][j] = 3;
                             }
                         }
 
-
-                        if (i - 1 > 0 && j - 1 > 0) {
+                        if(i - 1 >= 0 && j - 1 >= 0) {
                             if (smashMatrix[i - 1][j - 1] != 1) {
                                 smashMatrix[i - 1][j - 1] = 3;
                             }
                         }
-                        if (j - 1 > 0) {
+                        if(j - 1 >= 0) {
                             if (smashMatrix[i][j - 1] != 1) {
                                 smashMatrix[i][j - 1] = 3;
                             }
@@ -136,8 +143,7 @@ public class AI {
                             }
                         }
 
-
-                        if (i - 1 > 0 && j + 1 < smashMatrix[i].length) {
+                        if(i - 1 >= 0 && j + 1 < smashMatrix[i].length) {
                             if (smashMatrix[i - 1][j + 1] != 1) {
                                 smashMatrix[i - 1][j + 1] = 3;
                             }
@@ -148,7 +154,7 @@ public class AI {
                             }
                         }
 
-                        if (i + 1 < smashMatrix.length && j - 1 > 0) {
+                        if(i + 1 < smashMatrix.length && j - 1 >= 0) {
                             if (smashMatrix[i + 1][j - 1] != 1) {
                                 smashMatrix[i + 1][j - 1] = 3;
                             }
@@ -161,10 +167,17 @@ public class AI {
                     }
                 }
             }
+//            for (int i = 0; i < smashMatrix.length; i++) {
+//                for (int j = 0; j < smashMatrix[i].length; j++) {
+//                    if (smashMatrix[i][j] == 1) {
+//                        smashMatrix[i][j] = 3;
+//                    }
+//                }
+//            }
             for (int i = 0; i < smashMatrix.length; i++) {
                 for (int j = 0; j < smashMatrix[i].length; j++) {
-                    if (smashMatrix[i][j] == 1) {
-                        smashMatrix[i][j] = 3;
+                    if(smashMatrix[i][j] == 3) {
+                        compAttackMatrix[i][j] = 0;
                     }
                 }
             }
@@ -181,7 +194,9 @@ public class AI {
                 if (smashMatrix[i][j] == 2) {
                     coordinate.setX(i);
                     coordinate.setY(j);
-                    smashMatrix[i][j] = 0;
+                    smashMatrix[i][j] = 3;
+                    compAttackMatrix[i][j] = 0;
+                    return coordinate;
                 }
             }
         }
@@ -223,27 +238,31 @@ public class AI {
                 for (int j = 0; j < smashMatrix[i].length; j++) {
                     if (smashMatrix[i][j] == 1) {
                         if (positioning == Positioning.HORIZONTAL) {
-                            if (j != 0) {
+                            if(j - 1 >= 0) {
                                 if (smashMatrix[i][j - 1] == 2) {
-                                    smashMatrix[i][j - 1] = 0;
+                                    smashMatrix[i][j - 1] = 3;
+                                    compAttackMatrix[i][j - 1] = 0;
                                 }
                             }
-                            if (j != smashMatrix[i].length - 1) {
+                            if(j + 1 < smashMatrix[i].length - 1) {
                                 if (smashMatrix[i][j + 1] == 2) {
-                                    smashMatrix[i][j + 1] = 0;
+                                    smashMatrix[i][j + 1] = 3;
+                                    compAttackMatrix[i][j + 1] = 0;
                                 }
                             }
 
                         }
                         if (positioning == Positioning.VERTICAL) {
-                            if (i != 0) {
+                            if(i - 1 >= 0) {
                                 if (smashMatrix[i - 1][j] == 2) {
-                                    smashMatrix[i - 1][j] = 0;
+                                    smashMatrix[i - 1][j] = 3;
+                                    compAttackMatrix[i - 1][j] = 0;
                                 }
                             }
-                            if (i != smashMatrix.length - 1) {
+                            if(i + 1 < smashMatrix.length - 1) {
                                 if (smashMatrix[i + 1][j] == 2) {
-                                    smashMatrix[i + 1][j] = 0;
+                                    smashMatrix[i + 1][j] = 3;
+                                    compAttackMatrix[i + 1][j] = 0;
                                 }
                             }
 

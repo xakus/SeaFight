@@ -23,10 +23,12 @@ public class Main {
             AI.initAttackMatrix();
             Coordinate c = new Coordinate();/////TEST
             for (int i = 0; i < Sea.myMatrix.length * Sea.myMatrix.length; i++) {
-                  Display.writeTextAndDisplay(Language.GetWord(2));
-                  Thread.sleep(1000);
+
+                  //Thread.sleep(1000);
                   AI.compAttack();
-                  //Ships.attack(Attacking.PLAYER, c);
+                  Display.writeTextAndDisplay(Language.GetWord(2));
+                  int y = Integer.parseInt(sc.next()) - 1;
+
             }
             boolean start = true;
             while(start) {
