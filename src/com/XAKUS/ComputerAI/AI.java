@@ -13,13 +13,13 @@ import java.util.Random;
  * Created by xakus on 17.01.2016.
  */
 public class AI {
-      private static int[][] compAttackMatrix = new int[Sea.myMatrix.length][Sea.myMatrix[0].length];
-      private static int[][] smashMatrix      = new int[Sea.myMatrix.length][Sea.myMatrix[0].length];
+      public static int[][] compAttackMatrix = new int[Sea.myMatrix.length][Sea.myMatrix[0].length];
+      public static int[][] smashMatrix      = new int[Sea.myMatrix.length][Sea.myMatrix[0].length];
       private static boolean isSmash          = false;
       private static boolean nextAttack       = true;
       private static Random  rnd              = new Random();
 
-      public static void compAttack() {
+      public static ResultOfAttack compAttack() {
             Coordinate     coordinate     = new Coordinate();
             ResultOfAttack resultOfAttack = ResultOfAttack.NULL;
             nextAttack = true;
@@ -27,19 +27,23 @@ public class AI {
                   if(!isSmash) {
                         coordinate = getAttackCoordinate();
                         resultOfAttack = Ships.attack(Attacking.PLAYER, coordinate);
-                        if(resultOfAttack == ResultOfAttack.WOUNDED) {
+                        if(resultOfAttack == ResultOfAttack.WOUNDED || resultOfAttack == ResultOfAttack.KILLED) {
                               isSmash = true;
                         }
                         if(resultOfAttack == ResultOfAttack.PAST) {
                               smashMatrix[coordinate.getX()][coordinate.getY()] = 3;
                               nextAttack = false;
                         }
+                        if(resultOfAttack == ResultOfAttack.KILLED_ALL) {
+                              return resultOfAttack;
+                        }
 
                   }
                   if(isSmash) {
-                        attackSmash(coordinate, resultOfAttack);
+                        resultOfAttack = attackSmash(coordinate, resultOfAttack);
                   }
             }
+            return resultOfAttack;
       }
 
       private static Coordinate getAttackCoordinate() {
@@ -49,7 +53,7 @@ public class AI {
             int count          = 0;
             int rndNumber      = 0;
 
-            if(getNumberCount(3) != 0) {
+            if(getNumberCount(3) > 0) {
                   requiredNumber = 3;
                   count = getNumberCount(requiredNumber);
 
@@ -77,41 +81,17 @@ public class AI {
             return attackCordinate;
       }
 
-      private static void attackSmash(Coordinate coor, ResultOfAttack result) {
+      private static ResultOfAttack attackSmash(Coordinate coor, ResultOfAttack result) {
             boolean smashContine = true;
             while(smashContine) {
-                  if(coor.getX() != -1 && coor.getY() != -1) {
-                        if(result == ResultOfAttack.WOUNDED) {
-                              smashMatrix[coor.getX()][coor.getY()] = 1;
-                              if(coor.getX() - 1 >= 0) {
-                                    if(smashMatrix[coor.getX() - 1][coor.getY()] == 0) {
-                                          smashMatrix[coor.getX() - 1][coor.getY()] = 2;
-                                    }
-                              }
-                              if(coor.getX() + 1 < smashMatrix.length) {
-                                    if(smashMatrix[coor.getX() + 1][coor.getY()] == 0) {
-                                          smashMatrix[coor.getX() + 1][coor.getY()] = 2;
-                                    }
-                              }
-                              if(coor.getY() - 1 >= 0) {
-                                    if(smashMatrix[coor.getX()][coor.getY() - 1] == 0) {
-                                          smashMatrix[coor.getX()][coor.getY() - 1] = 2;
-                                    }
-                              }
-                              if(coor.getY() + 1 < smashMatrix.length) {
-                                    if(smashMatrix[coor.getX()][coor.getY() + 1] == 0) {
-                                          smashMatrix[coor.getX()][coor.getY() + 1] = 2;
-                                    }
-                              }
-                        }
-                        smashSort();
+                  smashSort(coor, result);
+                  if(result != ResultOfAttack.KILLED && result != ResultOfAttack.KILLED_ALL) {
+                        coor = getSmashCoordinate();
+                        System.out.println("getX=" + coor.getX() + " getY=" + coor.getY());
+                        result = Ships.attack(Attacking.PLAYER, coor);
                   }
-                  coor = getSmashCoordinate();
-
-                  System.out.println("getX=" + coor.getX() + " getY=" + coor.getY());
-                  result = Ships.attack(Attacking.PLAYER, coor);
-
                   if(result == ResultOfAttack.PAST || result == ResultOfAttack.KILLED || result == ResultOfAttack.KILLED_ALL) {
+                        smashSort(coor, result);
                         smashContine = false;
 
                   }
@@ -120,6 +100,12 @@ public class AI {
                   }
                   if(result == ResultOfAttack.KILLED) {
                         isSmash = false;
+                  }
+                  if(result == ResultOfAttack.KILLED_ALL) {
+                        nextAttack = false;
+                        isSmash = false;
+                        System.out.println("ALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+                        return result;
                   }
             }
 
@@ -184,14 +170,48 @@ public class AI {
 //            }
                   for(int i = 0; i < smashMatrix.length; i++) {
                         for(int j = 0; j < smashMatrix[i].length; j++) {
-                              if(smashMatrix[i][j] == 3) {
+                              if(smashMatrix[i][j] == 3 || smashMatrix[i][j] == 2) {
                                     compAttackMatrix[i][j] = 0;
                               }
                         }
                   }
 
             }
+            return result;
+      }
 
+      private static void smashSort(Coordinate coor, ResultOfAttack result) {
+
+            if(coor.getX() != -1 && coor.getY() != -1) {
+                  if(result == ResultOfAttack.WOUNDED || result == ResultOfAttack.KILLED) {
+                        smashMatrix[coor.getX()][coor.getY()] = 1;
+                        if(coor.getX() - 1 >= 0) {
+                              if(smashMatrix[coor.getX() - 1][coor.getY()] == 0) {
+                                    smashMatrix[coor.getX() - 1][coor.getY()] = 2;
+                                    compAttackMatrix[coor.getX() - 1][coor.getY()] = 0;
+                              }
+                        }
+                        if(coor.getX() + 1 < smashMatrix.length) {
+                              if(smashMatrix[coor.getX() + 1][coor.getY()] == 0) {
+                                    smashMatrix[coor.getX() + 1][coor.getY()] = 2;
+                                    compAttackMatrix[coor.getX() + 1][coor.getY()] = 0;
+                              }
+                        }
+                        if(coor.getY() - 1 >= 0) {
+                              if(smashMatrix[coor.getX()][coor.getY() - 1] == 0) {
+                                    smashMatrix[coor.getX()][coor.getY() - 1] = 2;
+                                    compAttackMatrix[coor.getX()][coor.getY() - 1] = 0;
+                              }
+                        }
+                        if(coor.getY() + 1 < smashMatrix.length) {
+                              if(smashMatrix[coor.getX()][coor.getY() + 1] == 0) {
+                                    smashMatrix[coor.getX()][coor.getY() + 1] = 2;
+                                    compAttackMatrix[coor.getX()][coor.getY() + 1] = 0;
+                              }
+                        }
+                  }
+                  sort();
+            }
       }
 
       private static Coordinate getSmashCoordinate() {
@@ -210,7 +230,7 @@ public class AI {
             return coordinate;
       }
 
-      private static void smashSort() {
+      private static void sort() {
             int         count       = 0;
             int         x           = -1, y = -1;
             Positioning positioning = Positioning.NULL;

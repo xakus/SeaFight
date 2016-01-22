@@ -8,13 +8,14 @@ import com.XAKUS.Game.Language;
 import com.XAKUS.Sea.Sea;
 import com.XAKUS.Sea.SeaResolution;
 import com.XAKUS.Ship.Attacking;
+import com.XAKUS.Ship.ResultOfAttack;
 
 import java.util.Scanner;
 
 public class Main {
 
       public static void main(String[] args) throws InterruptedException {
-
+            ResultOfAttack resultOfAttack = ResultOfAttack.NULL;
             Scanner sc = new Scanner(System.in);
             Sea.createSea(SeaResolution.R_10X10);
             Language.setLang(Language.Lang.RUSSIAN);
@@ -25,9 +26,12 @@ public class Main {
             for (int i = 0; i < Sea.myMatrix.length * Sea.myMatrix.length; i++) {
 
                   //Thread.sleep(1000);
-                  AI.compAttack();
+                  resultOfAttack = AI.compAttack();
                   Display.writeTextAndDisplay(Language.GetWord(2));
                   int y = Integer.parseInt(sc.next()) - 1;
+                  if(resultOfAttack == ResultOfAttack.KILLED_ALL) {
+                        System.exit(1);
+                  }
 
             }
             boolean start = true;
