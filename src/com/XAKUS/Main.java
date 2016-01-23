@@ -27,11 +27,11 @@ public class Main {
 
                   //Thread.sleep(1000);
                   resultOfAttack = AI.compAttack();
-                  Display.writeTextAndDisplay(Language.GetWord(2));
-                  int y = Integer.parseInt(sc.next()) - 1;
+                  Display.writeText(Language.GetWord(2));
                   if(resultOfAttack == ResultOfAttack.KILLED_ALL) {
                         System.exit(1);
                   }
+                  int y = Integer.parseInt(sc.next()) - 1;
 
             }
             boolean start = true;

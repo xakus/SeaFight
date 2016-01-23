@@ -1,6 +1,5 @@
 package com.XAKUS.Ship;
 
-import com.XAKUS.ComputerAI.AI;
 import com.XAKUS.Display.Display;
 import com.XAKUS.Game.Coordinate;
 import com.XAKUS.Game.Positioning;
@@ -345,7 +344,7 @@ public class Ships {
         if (killedAll(virtualShips)) {
             resultOfAttack = ResultOfAttack.KILLED_ALL;
         }
-        Display.drawFullDisplay(AI.compAttackMatrix, AI.smashMatrix);
+        Display.drawFullDisplay(Sea.myMatrix, Sea.compMatrix);
         return resultOfAttack;
     }
 
