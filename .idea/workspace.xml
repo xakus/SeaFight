@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81ae1452-7e83-4734-9148-0794d9882dff" name="Default" comment="AI class demey olarki hazirdi amma test elemey lazimdi &#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java" afterPath="$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SeaFight.iws" />
@@ -562,7 +561,7 @@
       <workItem from="1453371754873" duration="3476000" />
       <workItem from="1453451991220" duration="7075000" />
       <workItem from="1453490922839" duration="612000" />
-      <workItem from="1453541513188" duration="2418000" />
+      <workItem from="1453541513188" duration="2437000" />
     </task>
     <task id="LOCAL-00001" summary="added&#10;">
       <created>1452021009985</created>
@@ -636,11 +635,17 @@
       <option name="project" value="LOCAL" />
       <updated>1453547523646</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="AI class demey olarki hazirdi amma test elemey lazimdi &#10;">
+      <created>1453547557944</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1453547557944</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26749000" />
+    <option name="totallyTimeSpent" value="26768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
