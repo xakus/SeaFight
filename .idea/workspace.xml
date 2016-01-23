@@ -9,7 +9,6 @@
     <list default="true" id="81ae1452-7e83-4734-9148-0794d9882dff" name="Default" comment="AI class demey olarki hazirdi amma test elemey lazimdi &#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java" afterPath="$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/XAKUS/Main.java" afterPath="$PROJECT_DIR$/src/com/XAKUS/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/XAKUS/Ship/Ships.java" afterPath="$PROJECT_DIR$/src/com/XAKUS/Ship/Ships.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SeaFight.iws" />
@@ -33,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/XAKUS/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33170733">
-              <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -47,19 +46,19 @@
         <entry file="file://$PROJECT_DIR$/src/com/XAKUS/Ship/Ships.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="347" column="62" selection-start-line="347" selection-start-column="62" selection-end-line="347" selection-end-column="62" />
+              <caret line="346" column="62" selection-start-line="346" selection-start-column="62" selection-end-line="346" selection-end-column="62" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.66952056">
+              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,8 +137,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/XAKUS/Game/Language.java" />
         <option value="$PROJECT_DIR$/src/com/XAKUS/Display/Display.java" />
-        <option value="$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java" />
         <option value="$PROJECT_DIR$/src/com/XAKUS/Ship/Ships.java" />
+        <option value="$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java" />
         <option value="$PROJECT_DIR$/src/com/XAKUS/Main.java" />
       </list>
     </option>
@@ -564,7 +563,7 @@
       <workItem from="1453371754873" duration="3476000" />
       <workItem from="1453451991220" duration="7075000" />
       <workItem from="1453490922839" duration="612000" />
-      <workItem from="1453541513188" duration="1793000" />
+      <workItem from="1453541513188" duration="2379000" />
     </task>
     <task id="LOCAL-00001" summary="added&#10;">
       <created>1452021009985</created>
@@ -626,11 +625,17 @@
       <option name="project" value="LOCAL" />
       <updated>1453459558992</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="AI class demey olarki hazirdi amma test elemey lazimdi &#10;">
+      <created>1453546940363</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1453546940363</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26124000" />
+    <option name="totallyTimeSpent" value="26710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1066" extended-state="6" />
@@ -644,7 +649,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31410256" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3472222" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.08635394" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -746,7 +751,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="347" column="67" selection-start-line="347" selection-start-column="67" selection-end-line="347" selection-end-column="67" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -811,7 +816,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="265" column="9" selection-start-line="265" selection-start-column="9" selection-end-line="265" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -876,7 +881,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="267" column="0" selection-start-line="267" selection-start-column="0" selection-end-line="267" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -941,7 +946,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -988,7 +993,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1035,7 +1040,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1168,28 +1173,28 @@
     <entry file="file://$PROJECT_DIR$/src/com/XAKUS/Ship/Ships.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="347" column="62" selection-start-line="347" selection-start-column="62" selection-end-line="347" selection-end-column="62" />
+          <caret line="346" column="62" selection-start-line="346" selection-start-column="62" selection-end-line="346" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="23" selection-start-line="90" selection-start-column="23" selection-end-line="90" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1453546929893" expanded="true" signature="25:266" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/XAKUS/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33170733">
-          <caret line="28" column="51" selection-start-line="28" selection-start-column="51" selection-end-line="28" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/XAKUS/ComputerAI/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66952056">
+          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

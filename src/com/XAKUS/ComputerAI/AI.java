@@ -90,11 +90,12 @@ public class AI {
                         coor = getSmashCoordinate();
                         System.out.println("getX=" + coor.getX() + " getY=" + coor.getY());
                         result = Ships.attack(Attacking.PLAYER, coor);
-                        try {
-                              Thread.sleep(2000);
-                        } catch(InterruptedException e) {
-                              e.printStackTrace();
-                        }
+
+                  }
+                  try {
+                        Thread.sleep(2000);
+                  } catch(InterruptedException e) {
+                        e.printStackTrace();
                   }
                   if(result == ResultOfAttack.PAST || result == ResultOfAttack.KILLED || result == ResultOfAttack.KILLED_ALL) {
                         smashSort(coor, result);
