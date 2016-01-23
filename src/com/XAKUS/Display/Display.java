@@ -10,6 +10,7 @@ public abstract class Display {
       public static void drawFullDisplay(int[][] myMatrix, int[][] compMatrix) {
 
             System.out.println("\u001b[2J");
+            image();
             System.out.print("                              ");
             for(int i = 0; i < myMatrix[0].length; i++) {
                   if(i > 9) {
@@ -122,5 +123,35 @@ public abstract class Display {
                   str = Constants.ANSI_CYAN + strings[x] + Constants.ANSI_RESET;
             }
             return str;
+      }
+
+      private static void image() {
+            System.out.println(
+                    "                  \n" +
+                            "                  _.--| SeaFight |:\n" +
+                            "                 <____|.---------||\n" +
+                            "                        .---''---,\n" +
+                            "                         ;..__..'    _...\n" +
+                            "                       ,'/  ;|/..--''    \\\n" +
+                            "                     ,'_/.-/':            :\n" +
+                            "                _..-'''/  /  |  \\    \\   _|/|\n" +
+                            "               \\      /-./_ \\;   \\    \\,;'   \\\n" +
+                            "               ,\\    / \\:  `:\\    \\   //    `:`.\n" +
+                            "             ,'  \\  /-._;   | :    : ::    ,.   .\n" +
+                            "           ,'     ::   /`-._| |    | || ' :  `.`.)\n" +
+                            "        _,'       |;._:: |  | |    | `|   :    `'\n" +
+                            "      ,'   `.     /   |`-:_ ; |    |  |  : \\\n" +
+                            "      `--.   )   /|-._:    :          |   \\ \\\n" +
+                            "         /  /   :_|   ;`-._;   __..--';    : :\n" +
+                            "        /  (    ;|;-./_  _/.-:'o |   /     ' |\n" +
+                            "       /  , \\._/_/_./--''/_|:|___|_,'        |\n" +
+                            "      :  /   `'-'--'----'---------'          |\n" +
+                            "      | :     O ._O   O_. O ._O   O_.      ; ;\n" +
+                            "      : `.      //    //    //    //     ,' /\n" +
+                            "    ~~~`.______//____//____//____//_______,'~\n" +
+                            "              //    //~   //    //\n" +
+                            "       ~~   _//   _//   _// ~ _//     ~\n" +
+                            "     ~     / /   / /   / /   / /  ~      ~~\n" +
+                            "          ~~~   ~~~   ~~~   ~~~");
       }
 }
