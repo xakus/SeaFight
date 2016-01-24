@@ -17,7 +17,7 @@ public class Main {
       public static void main(String[] args) throws InterruptedException {
             ResultOfAttack resultOfAttack = ResultOfAttack.NULL;
             Scanner sc = new Scanner(System.in);
-            Sea.createSea(SeaResolution.R_5X5);
+            Sea.createSea(SeaResolution.R_15X15);
             Language.setLang(Language.Lang.RUSSIAN);
             Display.writeText(Language.GetWord(0));
             Display.writeText(Language.GetWord(1));

@@ -128,27 +128,27 @@ public abstract class Display {
       private static void image() {
             System.out.println(
                     Constants.ANSI_BLUE + "             _____.---------" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "/\\     \n" + Constants.ANSI_RESET +
-                            Constants.ANSI_BLUE + "            <____|._" + Constants.ANSI_RESET + Constants.ANSI_RED + "SeaFight" + Constants.ANSI_RESET + "" + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_BLUE + "            <____|.-" + Constants.ANSI_RESET + Constants.ANSI_GREEN + "SeaFight" + Constants.ANSI_RESET + "" + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
                             Constants.ANSI_BLUE + "            <____|.---------" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
-                            "                        .---''---,\n" +
-                            "                         ;..__..'    _...\n" +
-                            "                       ,'/  ;" + Constants.ANSI_YELLOW + "|" + Constants.ANSI_RESET + "/..--''    \\\n" +
+                            "                     " + Constants.ANSI_RED + "   .---''---," + Constants.ANSI_RESET + "\n" +
+                            "                    " + Constants.ANSI_RED + "     ;..__..'  " + Constants.ANSI_RESET + "  _...\n" +
+                            "                       ,'/ " + Constants.ANSI_YELLOW + " ;|" + Constants.ANSI_RESET + "/..--''    \\\n" +
                             "                     ,'_/.-/':            :\n" +
-                            "                _..-'''/  /  |  \\    \\   _|/|\n" +
-                            "               \\      /-./_ \\;   \\    \\,;'   \\\n" +
-                            "               ,\\    / \\:  `:\\    \\   //    `:`.\n" +
-                            "             ,'  \\  /-._;   | :    : ::    ,.   .\n" +
-                            "           ,'     ::   /`-._| |    | || ' :  `.`.)\n" +
-                            "        _,'       |;._:: |  | |    | `|   :    `'\n" +
-                            "      ,'   `.     /   |`-:_ ; |    |  |  : \\\n" +
-                            "      `--.   )   /|-._:    :          |   \\ \\\n" +
-                            "         /  /   :_|   ;`-._;   __..--';    : :\n" +
-                            "        /  (    ;|;-./_  _/.-:'o |   /     ' |\n" +
-                            "       /  , \\._/_/_./--''/_|:|___|_,'        |\n" +
-                            "      :  /   `'-'--'----'---------'          |\n" +
-                            "      | :     " + Constants.ANSI_RED + "O" + Constants.ANSI_RESET + " ._" + Constants.ANSI_RED + "O   O" + Constants.ANSI_RESET + "_. " + Constants.ANSI_RED + "O" + Constants.ANSI_RESET + " ._" + Constants.ANSI_RED + "O   O" + Constants.ANSI_RESET + "_.      ; ;\n" +
-                            "      : `.      " + Constants.ANSI_YELLOW + "//    //    //    //  " + Constants.ANSI_RESET + "   ,' /\n" +
-                            Constants.ANSI_CYAN + "    ~~~" + Constants.ANSI_RESET + "`.______" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_RESET + "____" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_RESET + "____" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_RESET + "____" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_RESET + "_______,'" + Constants.ANSI_CYAN + "~~~~~~~\n" + Constants.ANSI_RESET +
+                            "                _..-'''/  /  |  \\    \\   _|" + Constants.ANSI_RED + "/|\n" + Constants.ANSI_RESET +
+                            "               \\      /-./_ \\;   \\    \\" + Constants.ANSI_RED + ",;'   \\\n" + Constants.ANSI_RESET +
+                            "               ,\\    / \\:  `:\\    \\ " + Constants.ANSI_RED + "  //    `:`.\n" + Constants.ANSI_RESET +
+                            "             ,'  \\  /-._;   | :    :" + Constants.ANSI_RED + " ::    ,.   .\n" + Constants.ANSI_RESET +
+                            "           ,'     ::   /`-._| |    |" + Constants.ANSI_RED + " || ' :  `.`.)\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "        _" + Constants.ANSI_WHITE + ",'       |;._:: |  | |    |" + Constants.ANSI_RED + " `|   :    `'\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "      ,'   `." + Constants.ANSI_WHITE + "     /   |`-:_ ; |    | " + Constants.ANSI_RED + " |  : \\\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "      `--.   ) " + Constants.ANSI_WHITE + "  /|-._:    :        " + Constants.ANSI_RED + "  |   \\ \\\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "         /  /  " + Constants.ANSI_WHITE + " :_|   ;`-._;   __..--'" + Constants.ANSI_RED + ";    : :\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "        /  (  " + Constants.ANSI_WHITE + "  ;|;-./_  _/.-:'o | " + Constants.ANSI_RED + "  /     ' |\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "       /  , \\" + Constants.ANSI_WHITE + "._/_/_./--''/_|:|___|_" + Constants.ANSI_RED + ",'        |\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_RED + "      :  /   `'-'--'----'---------'          |\n" +
+                            Constants.ANSI_RED + "      | :     " + Constants.ANSI_GREEN + "O" + Constants.ANSI_RESET + " ._" + Constants.ANSI_GREEN + "O   O" + Constants.ANSI_RESET + "_. " + Constants.ANSI_GREEN + "O" + Constants.ANSI_RESET + " ._" + Constants.ANSI_GREEN + "O   O" + Constants.ANSI_RESET + "_.   " + Constants.ANSI_RED + "   ; ;\n" +
+                            Constants.ANSI_RED + "      : `.      " + Constants.ANSI_YELLOW + "//    //    //    //  " + Constants.ANSI_RESET + "  " + Constants.ANSI_RED + " ,' /\n" +
+                            Constants.ANSI_CYAN + "    ~~~" + Constants.ANSI_CYAN + Constants.ANSI_CYAN + "~~" + Constants.ANSI_CYAN + "~~~~~~" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_CYAN + "~~~~" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_CYAN + "~~~~" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_CYAN + "~~~~" + Constants.ANSI_YELLOW + "//" + Constants.ANSI_CYAN + "~~~~~~~" + Constants.ANSI_RED + ",'" + Constants.ANSI_CYAN + "~~~~~~~\n" + Constants.ANSI_RESET +
                             Constants.ANSI_YELLOW + "              //    //" + Constants.ANSI_CYAN + "~ " + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "  //    //\n" +
                             Constants.ANSI_CYAN + "       ~~" + Constants.ANSI_YELLOW + "   _//   _//   _// " + Constants.ANSI_CYAN + "~" + Constants.ANSI_YELLOW + " _//    " + Constants.ANSI_CYAN + " ~\n" + Constants.ANSI_RESET +
                             Constants.ANSI_CYAN + "     ~" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "     / /   / /   / /   / /  " + Constants.ANSI_CYAN + "~      ~~\n" + Constants.ANSI_RESET +
