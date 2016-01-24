@@ -127,9 +127,10 @@ public abstract class Display {
 
       private static void image() {
             System.out.println(
-                    Constants.ANSI_BLUE + "             _____.---------" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "/\\     \n" + Constants.ANSI_RESET +
-                            Constants.ANSI_BLUE + "            <____|.-" + Constants.ANSI_RESET + Constants.ANSI_GREEN + "SeaFight" + Constants.ANSI_RESET + "" + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
-                            Constants.ANSI_BLUE + "            <____|.---------" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
+                    Constants.ANSI_YELLOW + "                            /\\                       \n " +
+                            Constants.ANSI_BLUE + "             ___ .---------" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "||     \n" + Constants.ANSI_RESET +
+                            Constants.ANSI_BLUE + "             <___|.-" + Constants.ANSI_RESET + Constants.ANSI_GREEN + "SeaFight" + Constants.ANSI_RESET + "" + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
+                            Constants.ANSI_BLUE + "             <___|.---------" + Constants.ANSI_RESET + Constants.ANSI_YELLOW + "||\n" + Constants.ANSI_RESET +
                             "                     " + Constants.ANSI_RED + "   .---''---," + Constants.ANSI_RESET + "\n" +
                             "                    " + Constants.ANSI_RED + "     ;..__..'  " + Constants.ANSI_RESET + "  _...\n" +
                             "                       ,'/ " + Constants.ANSI_YELLOW + " ;|" + Constants.ANSI_RESET + "/..--''    \\\n" +
