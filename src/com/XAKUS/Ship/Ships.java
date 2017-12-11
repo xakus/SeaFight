@@ -18,7 +18,8 @@ public class Ships {
     private static List<Ship> myShips;
     private static List<Ship> compShips;
     private static SeaResolution seaResolution;
-
+    private static int moveCount=0;
+    private static String moveShip="";
     private Ships(SeaResolution seaResolution) {
 
         switch (seaResolution) {
@@ -344,7 +345,14 @@ public class Ships {
         if (killedAll(virtualShips)) {
             resultOfAttack = ResultOfAttack.KILLED_ALL;
         }
-        Display.drawFullDisplay(Sea.myMatrix, Sea.compMatrix);
+        if(moveCount<30){
+            moveCount++;
+            moveShip+="   ";
+        }else {
+            moveShip=" ";
+            moveCount=0;
+        }
+        Display.drawFullDisplay(Sea.myMatrix, Sea.compMatrix,moveShip);
         return resultOfAttack;
     }
 
