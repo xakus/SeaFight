@@ -2,6 +2,7 @@ package com.XAKUS;
 
 import com.XAKUS.ComputerAI.AI;
 import com.XAKUS.Display.Display;
+import com.XAKUS.Display.SeaFightForm;
 import com.XAKUS.Game.Coordinate;
 import com.XAKUS.Game.Game;
 import com.XAKUS.Game.Language;
@@ -10,11 +11,22 @@ import com.XAKUS.Sea.SeaResolution;
 import com.XAKUS.Ship.Attacking;
 import com.XAKUS.Ship.ResultOfAttack;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Main {
 
+      public Main(){
+            JFrame frame = new JFrame("SeaFight");
+            frame.setContentPane(new SeaFightForm().getView());
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
+            
+            
+      }
       public static void main(String[] args) throws InterruptedException {
+            new Main();
             ResultOfAttack resultOfAttack = ResultOfAttack.NULL;
             Scanner sc = new Scanner(System.in);
             Sea.createSea(SeaResolution.R_10X10);
