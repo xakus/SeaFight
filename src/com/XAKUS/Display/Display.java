@@ -11,7 +11,7 @@ import java.io.IOException;
 public abstract class Display {
       private static String moveShip=" ";
       public static void drawFullDisplay(int[][] myMatrix, int[][] compMatrix,String shipMove) {
-moveShip=shipMove;
+            moveShip=shipMove;
             System.out.println("\u001b[2J");
           try {
               Runtime.getRuntime().exec("clear");
